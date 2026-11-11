@@ -267,4 +267,5 @@ int main() {
     }
     cout << "Sistema encerrado.\n";
     return 0;
+    //.
 }
