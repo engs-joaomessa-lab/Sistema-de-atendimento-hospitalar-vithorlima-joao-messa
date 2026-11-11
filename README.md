@@ -11,9 +11,28 @@ Foram usadas uma fila para os pacientes, uma pilha para o histórico e uma lista
 Com o g++ instalado, abra o terminal na pasta do projeto e execute:
 
 ```powershell
-g++ -std=c++17 -Wall -o atendimento.exe atendimento_template.cpp
+g++ -std=c++17 -Wall -Wextra -Iinclude -o atendimento.exe src/*.cpp
 .\atendimento.exe
 ```
+
+Com `make` instalado, basta rodar `make` (gera `atendimento`) e `make clean` para limpar.
+
+## Estrutura do projeto
+
+```text
+include/        cabeçalhos (.h)
+  No.h            nó encadeado compartilhado
+  Fila.h          fila de pacientes
+  Pilha.h         pilha do histórico
+  ListaMedicos.h  lista encadeada de médicos
+  Hospital.h      regras de negócio do atendimento
+  Entrada.h       leitura validada do console
+  Menu.h          menu e tratamento das opções
+src/            implementações (.cpp) e main.cpp
+Makefile        compilação
+```
+
+As estruturas de dados não conhecem o hospital, `Hospital` não conhece o menu, e só `Menu` e `Entrada` mexem com entrada e saída do usuário.
 
 ## Como usar
 
